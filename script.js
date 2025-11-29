@@ -1,19 +1,19 @@
 //Form validation
 document.addEventListener("DOMContentLoaded", () => {
-
+  
   const form = document.getElementById("registration-form");
   const feedbackDiv = document.getElementById("form-feedback");
 
-  // Add submit event listener
+  // Add submit event listener using arrow function
   form.addEventListener("submit", (event) => {
     event.preventDefault(); 
 
-    // Retrieve input values and trim whitespace
+    // Get input values and trim
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    // Initialize validation variables
+    // Initialize validation
     let isValid = true;
     const messages = [];
 
@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
       messages.push("Password must be at least 8 characters long.");
     }
 
-    
-    feedbackDiv.style.display = "block"; 
+    // Display feedback
+    feedbackDiv.style.display = "block";
     if (isValid) {
       feedbackDiv.textContent = "Registration successful!";
-      feedbackDiv.style.color = "#28a745"; 
+      feedbackDiv.style.color = "#28a745";
     } else {
-      feedbackDiv.innerHTML = messages.join("<br>"); 
-      feedbackDiv.style.color = "#dc3545"; 
+      feedbackDiv.innerHTML = messages.join("<br>");
+      feedbackDiv.style.color = "#dc3545";
     }
   });
 });
